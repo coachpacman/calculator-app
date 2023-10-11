@@ -8,26 +8,22 @@ body {
   height: 1000px;
   width: 1000px;
   margin: auto;
-  border: 1px solid red;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
+  /* border: 1px solid red; */
 }
 
 #container {
   height: 75%;
   width: 50%;
-  border: 1px solid black;
+  border: 3px solid black;
 }
 
 #container > div {
-  height: calc(100%/6.1);
+  height: calc(100%/6);
   width: 100%;
-  border: 1px solid green;
+  /* border: 1px solid green; */
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-evenly;
 }
 
 .row {
@@ -36,18 +32,43 @@ body {
 
 .button {
   height: 100%;
-  width: 25%;
-  border: 1px solid purple;
+  width: 23%;
+  /* border: 1px solid purple; */
+  font-size: xx-large;
+  border-style: none;
+  border-radius: 2px;
 }
 
 #clear-entry {
-  flex-shrink: 1;
+  /* flex-shrink: 1; */
 }
 
 #display {
   height: 100%;
-  border: 1px solid cyan;
-  flex-grow: 3;
+  width: 73%;
+  /* border: 1px solid cyan; */
+  /* flex-grow: 2; */
   text-align: right;
   font-size: 90px
+}
+
+/* background colors for buttons */
+.number {
+  background-color: gray;
+}
+
+.operator {
+  background-color: lightgray;
+}
+
+.equal {
+  background-color: royalblue;
+}
+
+.clear{
+  background-color: brown;
+}
+
+.memory {
+  background-color: lightgreen;
 }
