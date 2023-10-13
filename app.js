@@ -1,9 +1,9 @@
 const display = document.getElementById("display");
 var newNumber;
 var nextNumber;
-var num1;
-var num2;
-var math;
+var num1 = "";
+var num2 = "";
+var math = "";
 
 //Add event listeners to all buttons
 var numBtns = document.querySelectorAll(".number");
@@ -11,23 +11,16 @@ var numBtns = document.querySelectorAll(".number");
 numBtns.forEach(function(btn) {
   btn.addEventListener("click", function(e) {
     if (math) {
-      console.log(e.target.innerHTML);
-      // var nextNumber = e.target.innerHTML;
-      display.innerHTML = "something";
-      curNumber = btnNumber;
-      newNumber = curNumber.concat(btnNumber);
-      display.innerHTML = newNumber
-      // var curNumber = display.innerHTML;
-      // newNumber = curNumber.concat(btnNumber);
-      // display.innerHTML = newNumber
+      btnNumber = e.target.innerHTML;
+      num2 = num2.concat(btnNumber);
+      display.innerHTML = num2
     } else {
       //display number that is clicked
-      curNumber = display.innerHTML;
-      btnNumber = e.target.innerHTML;
+      const btnNumber = e.target.innerHTML;
       
       //if additional number is clicked, show concatenated number; ex: press 1, press 1, display 11
-      newNumber = curNumber.concat(btnNumber);
-      display.innerHTML = newNumber
+      num1 = num1.concat(btnNumber);
+      display.innerHTML = num1
     }
   })
 })
@@ -46,10 +39,11 @@ document.getElementById("addition").addEventListener("click", function(e) {
 
 
 function calculate(num1, num2) {
+  num1 = Number(num1);
+  num2 = Number(num2);
   switch(math) {
     case "addition":
       newNumber = num1 + num2;
-      console.log(num1, num2)
       display.innerHTML = newNumber;
       math = "";
   }
