@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
-  <script src="app.js" defer></script>
+  
   <title>Calculator App</title>
 </head>
 <body>
@@ -37,8 +37,8 @@
     <div id="row5" class="row"">
       <button class="button number">0</button>
       <button class="button number">.</button>
-      <button class="button equal">=</button>
-      <button class="button operator">+</button>
+      <button id="equals" class="button equal" onclick="calculate(num1, num2)">=</button>
+      <button id="addition" class="button operator">+</button>
     </div>
     <div id="row6" class="row"">
       <button class="button memory">M+</button>
@@ -47,6 +47,6 @@
       <button class="button memory">MC</button>
     </div>
   </div>
-  
+  <script src="app.js"></script>
 </body>
 </html>
