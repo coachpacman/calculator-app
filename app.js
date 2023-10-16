@@ -26,18 +26,48 @@ numBtns.forEach(function(btn) {
 //Event listeners for all math operator buttons
 document.getElementById("addition").addEventListener("click", function(e) {
   math = "addition";
+  if (num2) {
+    num1 = Number(num1);
+    num2 = Number(num2);
+    num1 = num1 + num2;
+    num2 = ""
+    display.innerHTML = num1;
+    // continuousCalc(num1,num2); shows concatenated numbers
+  }
 })
 
 document.getElementById("subtraction").addEventListener("click", function(e) {
   math = "subtraction";
+  if (num2) {
+    num1 = Number(num1);
+    num2 = Number(num2);
+    num1 = num1 - num2;
+    num2 = ""
+    display.innerHTML = num1;
+    // continuousCalc(num1,num2); shows concatenated numbers
+  }
 })
 
 document.getElementById("multiplication").addEventListener("click", function(e) {
-  math = "multiplication";
+  if (num2) {
+    calculate(num1, num2);
+    math = "multiplication"
+    
+  } else {
+    math = "multiplication";
+  }
 })
 
 document.getElementById("division").addEventListener("click", function(e) {
   math = "division";
+  if (num2) {
+    num1 = Number(num1);
+    num2 = Number(num2);
+    num1 = num1 / num2;
+    num2 = ""
+    display.innerHTML = num1;
+    // continuousCalc(num1,num2); shows concatenated numbers
+  }
 })
 
 function calculate(num1, num2) {
@@ -47,7 +77,8 @@ function calculate(num1, num2) {
     case "addition":
       newNumber = num1 + num2;
       display.innerHTML = newNumber;
-      math = "";
+      num1 = newNumber;
+      num2 = ""
       break;
     case "subtraction":
       newNumber = num1 - num2;
@@ -66,3 +97,12 @@ function calculate(num1, num2) {
       break;
   }
 }
+
+function continuousCalc(num1,num2) {
+  num1 = Number(num1);
+  num2 = Number(num2);
+  num1 = num1 + num2;
+  num2 = ""
+  display.innerHTML = num1;
+}
+
