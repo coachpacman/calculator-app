@@ -4,7 +4,7 @@ var num2 = "";
 var math = "";
 
 //for clearing values in CE button
-function clearMe() {
+function clearDisplay() {
   num1 = "";
   num2 = "";
   math = "";
