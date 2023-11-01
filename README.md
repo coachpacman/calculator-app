@@ -1,4 +1,4 @@
-# calculator-app
+# Calculator-app
 This project is part of the [Software Development Mastermind program](https://andysterkowitz.com/), a 4-month, online, project based learning program. 
 
 ## Learning goals
