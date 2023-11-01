@@ -3,7 +3,6 @@ var num1 = "";
 var num2 = "";
 var math = "";
 
-//for clearing values in CE button
 function clearDisplay() {
   num1 = "";
   num2 = "";
@@ -11,7 +10,6 @@ function clearDisplay() {
   display.innerHTML = "0";
 }
 
-//used for displaying values in calculator
 const display = document.getElementById("display");
 
 //Number button event listeners. Values will concatenate if a math operand hasn't been identified
@@ -19,9 +17,8 @@ var numBtns = document.querySelectorAll(".number");
 
 numBtns.forEach(function(btn) {
   btn.addEventListener("click", function(e) {
-    if (math) { //if there is a math operation, assume that we're updating num2 
-      
-      //display number that is clicked
+    if (math) {
+
       const btnNumber = e.target.innerHTML;
       
       //if additional number is clicked, show concatenated number; ex: press 1, press 1, display 11
@@ -35,36 +32,22 @@ numBtns.forEach(function(btn) {
   })
 })
 
+const operations = {
+  "addition": (a, b) => a + b,
+  "subtraction": (a, b) => a - b,
+  "multiplication": (a, b) => a * b,
+  "division": (a, b) => a / b
+}
+
 //Performs current math operation, then updates num1 with new calculated value and clears num2 for next number value
 function calculate(param1, param2) {
   num1 = Number(param1);
   num2 = Number(param2);
-  switch(math) {
-    case "addition":
-      newNumber = num1 + num2;
-      display.innerHTML = newNumber;
-      num1 = newNumber;
-      num2 = "";
-      break;
-    case "subtraction":
-      newNumber = num1 - num2;
-      display.innerHTML = newNumber;
-      num1 = newNumber;
-      num2 = "";
-      break;
-    case "multiplication":
-      newNumber = num1 * num2;
-      display.innerHTML = newNumber;
-      num1 = newNumber;
-      num2 = "";
-      break;
-    case "division":
-      newNumber = num1 / num2;
-      display.innerHTML = newNumber;
-      num1 = newNumber;
-      num2 = "";
-      break;
-  }
+
+  newNumber = operations[math](num1, num2);
+  display.innerHTML = newNumber;
+  num1 = newNumber;
+  num2 = "";
 }
 
 //Math operator event listeners. If num2 exists, perform current math operation and then update math operator
