@@ -1,7 +1,7 @@
 //used for performing math functions. I assume all math functions follow form num1, math operator, num2
-var num1 = "";
-var num2 = "";
-var math = "";
+let num1 = "";
+let num2 = "";
+let math = "";
 
 function clearDisplay() {
   num1 = "";
@@ -13,7 +13,7 @@ function clearDisplay() {
 const display = document.getElementById("display");
 
 //Number button event listeners. Values will concatenate if a math operand hasn't been identified
-var numBtns = document.querySelectorAll(".number");
+const numBtns = document.querySelectorAll(".number");
 
 numBtns.forEach(function(btn) {
   btn.addEventListener("click", function(e) {
