@@ -18,9 +18,8 @@ const numBtns = document.querySelectorAll(".number");
 numBtns.forEach(function(btn) {
   btn.addEventListener("click", function(e) {
     if (math) {
-
       const btnNumber = e.target.innerHTML;
-      
+
       //if additional number is clicked, show concatenated number; ex: press 1, press 1, display 11
       num2 = num2.concat(btnNumber);
       display.innerHTML = num2
@@ -51,41 +50,14 @@ function calculate(param1, param2) {
 }
 
 //Math operator event listeners. If num2 exists, perform current math operation and then update math operator
-document.getElementById("addition").addEventListener("click", function(e) {
-  if (num2) {
-    calculate(num1, num2);
-    math = "addition"
-  } else {
-    math = "addition"
-  }
-})
+const operators = document.querySelectorAll(".operator");
 
-document.getElementById("subtraction").addEventListener("click", function(e) {
-  if (num2) {
-    calculate(num1, num2);
-    math = "subtraction"
-  } else {
-    math = "subtraction"
-  }
-})
-
-document.getElementById("multiplication").addEventListener("click", function(e) {
-  if (num2) {
-    calculate(num1, num2);
-    math = "multiplication"
-  } else {
-    math = "multiplication";
-  }
-})
-
-document.getElementById("division").addEventListener("click", function(e) {
-  if (num2) {
-    calculate(num1, num2);
-    math = "division"
-  } else {
-    math = "division"
-  }
-})
-
-
-
+for (const operator of operators) {
+  operator.addEventListener("click", e => {
+    if (num2) {
+      calculate(num1, num2);
+      math = e.target.id;
+    } else {
+      math = e.target.id;
+    }
+  })
